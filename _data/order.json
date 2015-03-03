@@ -22,7 +22,9 @@
           "country": "United Kingdom"
         }
       ],
-      "payment_method": "PayPal"
+      "payment_method": "PayPal",
+      "email": "steve.smith@email.com",
+      "phone": "07123456789"
     },
     "items": [
       {
@@ -46,6 +48,7 @@
         "price": 30,
         "gift_wrap": false
       }
-    ]
+    ],
+    "delivery_charge": 3
   }
 }
