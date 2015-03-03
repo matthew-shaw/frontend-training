@@ -1,4 +1,5 @@
 # Frontend Training
+[![Build Status](https://travis-ci.org/matthew-shaw/frontend-training.svg?branch=master)](https://travis-ci.org/matthew-shaw/frontend-training)
 
 Made with
 * [Jekyll](http://jekyllrb.com/)
