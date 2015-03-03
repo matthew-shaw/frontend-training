@@ -13,3 +13,4 @@ gems:
 markdown: kramdown
 permalink: pretty
 exclude: [vendor]
+highlighter: pygments
