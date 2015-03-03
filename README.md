@@ -7,6 +7,7 @@ Made with
 * [Bootstrap](http://getbootstrap.com/)
 * [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 * [Bootswatch](http://bootswatch.com/)
+* [Pygments](http://pygments.org/)
 
 Tested with
 * [HTML Proofer](https://github.com/gjtorikian/html-proofer).
