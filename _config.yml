@@ -3,7 +3,7 @@ title: Matt's Frontend Training
 author: Matthew Shaw
 email:
 description: Matt's frontend self-training course
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: "/frontend-training" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
 gems:
