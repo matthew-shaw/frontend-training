@@ -1,51 +1,53 @@
 {
-  "order": {
-    "customer": {
-      "name": "Steve Smith",
-      "addresses": [
-        {
-          "type": "delivery",
-          "address_1": "321 Evergreen Terrace",
-          "address_2": "Mannamead",
-          "town_city": "Plymouth",
-          "county": "Devon",
-          "postcode": "PL1 2AA",
-          "country": "United Kingdom"
-        },
-        {
-          "type": "invoice",
-          "address_1": "22 Acacia Avenue",
-          "address_2": "Crownhill",
-          "town_city": "Plymouth",
-          "county": "Devon",
-          "postcode": "PL2 3ZZ",
-          "country": "United Kingdom"
-        }
-      ],
-      "payment_method": "PayPal"
-    },
-    "items": [
+  "customer": {
+    "name": "Steve Smith",
+    "addresses": [
       {
-        "id": "1234",
-        "description": "Powerball Supernova Neon Lighting",
-        "image": "http://ecx.images-amazon.com/images/I/81ccbRlUPML._SL1500_.jpg",
-        "price": 16.99,
-        "gift_wrap": true
+        "type": "delivery",
+        "address_1": "321 Evergreen Terrace",
+        "address_2": "Mannamead",
+        "town_city": "Plymouth",
+        "county": "Devon",
+        "postcode": "PL1 2AA",
+        "country": "United Kingdom"
       },
       {
-        "id": "2345",
-        "description": "Macbook 13 inch decal sticker Yoshi",
-        "image": "http://ecx.images-amazon.com/images/I/31crlvT6qoL.jpg",
-        "price": 5.99,
-        "gift_wrap": false
-      },
-      {
-        "id": "3456",
-        "description": "Google Chromecast",
-        "image": "http://ecx.images-amazon.com/images/I/817L4SMD2LL._SL1500_.jpg",
-        "price": 30,
-        "gift_wrap": false
+        "type": "invoice",
+        "address_1": "22 Acacia Avenue",
+        "address_2": "Crownhill",
+        "town_city": "Plymouth",
+        "county": "Devon",
+        "postcode": "PL2 3ZZ",
+        "country": "United Kingdom"
       }
-    ]
-  }
+    ],
+    "payment_method": "PayPal",
+    "email": "steve.smith@email.com",
+    "phone": "07123456789"
+  },
+  "items": [
+    {
+      "id": "1234",
+      "description": "Powerball Supernova Neon Lighting",
+      "image": "http://ecx.images-amazon.com/images/I/81ccbRlUPML._SL1500_.jpg",
+      "price": 16.99,
+      "gift_wrap": true
+    },
+    {
+      "id": "2345",
+      "description": "Macbook 13 inch decal sticker Yoshi",
+      "image": "http://ecx.images-amazon.com/images/I/31crlvT6qoL.jpg",
+      "price": 5.99,
+      "gift_wrap": false
+    },
+    {
+      "id": "3456",
+      "description": "Google Chromecast",
+      "image": "http://ecx.images-amazon.com/images/I/817L4SMD2LL._SL1500_.jpg",
+      "price": 30,
+      "gift_wrap": false
+    }
+  ],
+  "delivery_charge": 3,
+  "delivery_days": 3
 }
