@@ -2,7 +2,9 @@
   "id": "123ABC456",
   "date": "2015-03-04T08:54:17+00:00",
   "customer": {
-    "name": "Steve Smith",
+    "title": "Mr",
+    "forename": "Steve",
+    "surname": "Smith",
     "addresses": [
       {
         "type": "delivery",
@@ -51,5 +53,5 @@
     }
   ],
   "delivery_charge": 3,
-  "delivery_days": 3
+  "delivery_date": "2015-03-07"
 }
