@@ -1,4 +1,6 @@
 {
+  "id": "123ABC456",
+  "date": "2015-03-04T08:54:17+00:00",
   "customer": {
     "name": "Steve Smith",
     "addresses": [
