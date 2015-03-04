@@ -1,6 +1,10 @@
 {
+  "id": "123ABC456",
+  "date": "2015-03-04T08:54:17+00:00",
   "customer": {
-    "name": "Steve Smith",
+    "title": "Mr",
+    "forename": "Steve",
+    "surname": "Smith",
     "addresses": [
       {
         "type": "delivery",
@@ -44,10 +48,10 @@
       "id": "3456",
       "description": "Google Chromecast",
       "image": "http://ecx.images-amazon.com/images/I/817L4SMD2LL._SL1500_.jpg",
-      "price": 30,
+      "price": 29.99,
       "gift_wrap": false
     }
   ],
-  "delivery_charge": 3,
-  "delivery_days": 3
+  "delivery_charge": 2.99,
+  "delivery_date": "2015-03-07"
 }
