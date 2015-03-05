@@ -34,4 +34,4 @@ bundle exec jekyll serve
 ```
 
 Ta-dah!
-[http://localhost:4000/](http://localhost:4000/)
+[http://localhost:4000/frontend-training/](http://localhost:4000/frontend-training/)
