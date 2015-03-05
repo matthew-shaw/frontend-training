@@ -7,89 +7,152 @@ permalink: templating/
   <h1>{{ page.title }}</h1>
 </div>
 
-<p>Create a new page in the root of the project called order.html and copy the following in to it:</p>
+<p>This is a tutorial on <a href="http://en.wikipedia.org/wiki/Web_template_system">web templating</a>.</p>
 
-{% highlight html %}
----
-layout: default
-title: Order
-permalink: order/
----
-<div class="page-header">
-  <h1>Order ID <small>Order Date</small></h1>
-</div>
-<div class="row">
-  <div class="col-xs-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Customer Details</h3>
-      </div>
-      <div class="panel-body">
-        <p>Customer Name</p>
-        <p>Invoice Address</p>
-        <p>Email Address</p>
-        <p>Phone Number</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Delivery Details</h3>
-      </div>
-      <div class="panel-body">
-        <p>Customer Name</p>
-        <p>Delivery Address</p>
-        <p>Delivery Date</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">Order Items</div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Gift Wrap</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Item ID</td>
-            <td>Item Image</td>
-            <td>Item Description</td>
-            <td>Item Price</td>
-            <td>Gift Wrap</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-3 col-xs-offset-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Payment</h3>
-      </div>
-      <div class="panel-body text-right">
-        <p>Items Total</p>
-        <p>Delivery Charge</p>
-        <p>Order Total</p>
-        <p>Payment Method</p>
-      </div>
-    </div>
-  </div>
-</div>
-{% endhighlight %}
+<ol>
+  <li><p>Create a new page in the root of the frontend-training project called order.html and copy the following in to it:</p></li>
 
-<p>Now use Liquid templating tags to populate this template with information from orders.json</p>
+  {% highlight html %}
+  ---
+  layout: default
+  title: Order
+  permalink: order/
+  ---
+  <div class="page-header">
+    <h1>Order ID <small>Order Date</small></h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Customer Details</h3>
+        </div>
+        <div class="panel-body">
+          <p>Customer Name</p>
+          <p>Invoice Address</p>
+          <p>Email Address</p>
+          <p>Phone Number</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Delivery Details</h3>
+        </div>
+        <div class="panel-body">
+          <p>Customer Name</p>
+          <p>Delivery Address</p>
+          <p>Delivery Date</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Order Items</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Image</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Gift Wrap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Item ID</td>
+              <td>Item Image</td>
+              <td>Item Description</td>
+              <td>Item Price</td>
+              <td>Gift Wrap</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3 col-xs-offset-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Payment</h3>
+        </div>
+        <div class="panel-body text-right">
+          <p>Items Total</p>
+          <p>Delivery Charge</p>
+          <p>Order Total</p>
+          <p>Payment Method</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endhighlight %}
+  <li><p>Take a look at the following JSON data in _data/order.json:</p></li>
+  {% highlight json %}
+  {
+    "id": "123ABC456",
+    "date": "2015-03-04T08:54:17+00:00",
+    "customer": {
+      "title": "Mr",
+      "forename": "Steve",
+      "surname": "Smith",
+      "addresses": [
+      {
+        "type": "delivery",
+        "address_1": "321 Evergreen Terrace",
+        "address_2": "Mannamead",
+        "town_city": "Plymouth",
+        "county": "Devon",
+        "postcode": "PL1 2AA",
+        "country": "United Kingdom"
+      },
+      {
+        "type": "invoice",
+        "address_1": "22 Acacia Avenue",
+        "address_2": "Crownhill",
+        "town_city": "Plymouth",
+        "county": "Devon",
+        "postcode": "PL2 3ZZ",
+        "country": "United Kingdom"
+      }
+      ],
+      "payment_method": "PayPal",
+      "email": "steve.smith@email.com",
+      "phone": "07123456789"
+    },
+    "items": [
+    {
+      "id": "1234",
+      "description": "Powerball Supernova Neon Lighting",
+      "image": "http://ecx.images-amazon.com/images/I/81ccbRlUPML._SL1500_.jpg",
+      "price": 16.99,
+      "gift_wrap": true
+    },
+    {
+      "id": "2345",
+      "description": "Macbook 13 inch decal sticker Yoshi",
+      "image": "http://ecx.images-amazon.com/images/I/31crlvT6qoL.jpg",
+      "price": 5.99,
+      "gift_wrap": false
+    },
+    {
+      "id": "3456",
+      "description": "Google Chromecast",
+      "image": "http://ecx.images-amazon.com/images/I/817L4SMD2LL._SL1500_.jpg",
+      "price": 29.99,
+      "gift_wrap": false
+    }
+    ],
+    "delivery_charge": 2.99,
+    "delivery_date": "2015-03-07"
+  }
 
-<p><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">THIS</a> link is your friend :smile:</p>
+  {% endhighlight %}
+  <li><p>Familiarise yourself with the <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Liquid templating engine syntax</a>.</p></li>
+  <li><p>Consider how you would use Liquid to represent the JSON data into the HTML layout, similarly to <a href="{{ site.baseurl }}/solution/order">this example solution</a>. Not all the information you need is in the JSON data, so you will need to use some logic and filters to calculate some parts.</p></li>
+</ol>
