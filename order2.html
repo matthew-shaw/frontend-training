@@ -43,16 +43,16 @@
   <div class="col-xs-12 col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-truck fa-fw"></i> Delivery Details</h3>
+        <h3 class="panel-title"><i class="fa  fa-fw"></i> Delivery Details</h3>
       </div>
       <div class="panel-body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-xs-1"><i class="fa fa-user fa-fw"></i></div>
+            <div class="col-xs-1"><i class="fa  fa-fw"></i></div>
             <div class="col-xs-11"><p>{{ site.data.order.customer.title }} {{ site.data.order.customer.forename }} {{ site.data.order.customer.surname }}</p></div>
           </div>
           <div class="row">
-            <div class="col-xs-1"><i class="fa fa-home fa-fw"></i></div>
+            <div class="col-xs-1"><i class="fa  fa-fw"></i></div>
             <div class="col-xs-11">
               {% for address in site.data.order.customer.addresses %}
                 {% if address.type == 'delivery' %}
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-1"><i class="fa fa-calendar fa-fw"></i></div>
+            <div class="col-xs-1"><i class="fa  fa-fw"></i></div>
             <div class="col-xs-11"><p>Estimated Delivery: {{ site.data.order.delivery_date | date: "%d/%m/%Y" }}</p></div>
           </div>
         </div>
