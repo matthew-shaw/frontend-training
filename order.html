@@ -120,7 +120,7 @@ permalink: order/
         {% endfor %}
         <p>Items Total: £{{ item_total }} </p>
         <p>Delivery Charge: £{{ site.data.order.delivery_charge }}</p>
-        <h4><strong>Order Total: £{{ item_total | plus: site.data.order.delivery_charge    }}</strong></h4>
+        <h4><strong>Order Total: £{{ item_total | plus: site.data.order.delivery_charge }}</strong></h4>
         <p>Will be deducted from your {% if site.data.order.customer.payment_method == 'PayPal'%}<i class="fa fa-paypal fa-fw"></i>{{ site.data.order.customer.payment_method }}{% endif %} account.</p>
       </div>
     </div>
