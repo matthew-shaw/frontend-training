@@ -95,14 +95,13 @@ permalink: order/
         </thead>
         <tbody>
           {% for item in site.data.order.items %}
-        
-        <tr>
+          <tr>
             <td>{{ item.id }}</td>
-            <td><img src="{{ item.image }}" alt="{{ item.description }}" "height = "42" width = "42"}></td>
+            <td><img src="{{ item.image }}" alt="{{ item.description }}" height="60"></td>
             <td>{{ item.description }}</td>
             <td>£{{ item.price }}</td>
             <td><input type="checkbox" {% if item.gift_wrap %}checked{% endif %}></td>
-        </tr>
+          </tr>
           {% endfor %}
         </tbody>
       </table>
@@ -110,16 +109,19 @@ permalink: order/
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-3 col-xs-offset-9">
+  <div class="col-xs-12 col-sm-6 col-lg-4 col-sm-offset-6 col-lg-offset-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Payment</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Payment</h3>
       </div>
       <div class="panel-body text-right">
-        <p>Items Total</p>
-        <p>Delivery Charge</p>
-        <p>Order Total</p>
-        <p>Payment Method</p>
+        {% for item in site.data.order.items %}
+        {% assign item_total = item_total | plus: item.price %}
+        {% endfor %}
+        <p>Items Total: £{{ item_total }} </p>
+        <p>Delivery Charge: £{{ site.data.order.delivery_charge }}</p>
+        <h4><strong>Order Total: £{{ item_total | plus: site.data.order.delivery_charge    }}</strong></h4>
+        <p>Will be deducted from your {% if site.data.order.customer.payment_method == 'PayPal'%}<i class="fa fa-paypal fa-fw"></i>{{ site.data.order.customer.payment_method }}{% endif %} account.</p>
       </div>
     </div>
   </div>
