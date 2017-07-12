@@ -3,8 +3,9 @@ layout: default
 title: Order
 permalink: /solution/order/
 ---
+{% assign order = site.data.order %}
 <div class="page-header">
-  <h1><i class="fa fa-shopping-cart fa-fw"></i>Order: {{ site.data.order.id }} <small>{{ site.data.order.date | date: "%d/%m/%Y %T %Z" }}</small></h1>
+  <h1><i class="fa fa-shopping-cart fa-fw"></i>Order: {{ order.id }} <small>{{ order.date | date: "%d/%m/%Y %T %Z" }}</small></h1>
 </div>
 <div class="row">
   <div class="col-xs-12 col-sm-6">
@@ -16,12 +17,12 @@ permalink: /solution/order/
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-user fa-fw"></i></div>
-            <div class="col-xs-11"><p>{{ site.data.order.customer.title }} {{ site.data.order.customer.forename }} {{ site.data.order.customer.surname }}</p></div>
+            <div class="col-xs-11"><p>{{ order.customer.title }} {{ order.customer.forename }} {{ order.customer.surname }}</p></div>
           </div>
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-home fa-fw"></i></div>
             <div class="col-xs-11">
-              {% for address in site.data.order.customer.addresses %}
+              {% for address in order.customer.addresses %}
                 {% if address.type == 'invoice' %}
                   <p>{{ address.address_1 }}</p>
                   <p>{{ address.address_2 }}</p>
@@ -35,11 +36,11 @@ permalink: /solution/order/
           </div>
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-envelope fa-fw"></i></div>
-            <div class="col-xs-11"><p>{{ site.data.order.customer.email }}</p></div>
+            <div class="col-xs-11"><p>{{ order.customer.email }}</p></div>
           </div>
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-phone fa-fw"></i></div>
-            <div class="col-xs-11"><p>{{ site.data.order.customer.phone }}</p></div>
+            <div class="col-xs-11"><p>{{ order.customer.phone }}</p></div>
           </div>
         </div>
       </div>
@@ -54,12 +55,12 @@ permalink: /solution/order/
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-user fa-fw"></i></div>
-            <div class="col-xs-11"><p>{{ site.data.order.customer.title }} {{ site.data.order.customer.forename }} {{ site.data.order.customer.surname }}</p></div>
+            <div class="col-xs-11"><p>{{ order.customer.title }} {{ order.customer.forename }} {{ order.customer.surname }}</p></div>
           </div>
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-home fa-fw"></i></div>
             <div class="col-xs-11">
-              {% for address in site.data.order.customer.addresses %}
+              {% for address in order.customer.addresses %}
                 {% if address.type == 'delivery' %}
                   <p>{{ address.address_1 }}</p>
                   <p>{{ address.address_2 }}</p>
@@ -73,7 +74,7 @@ permalink: /solution/order/
           </div>
           <div class="row">
             <div class="col-xs-1"><i class="fa fa-calendar fa-fw"></i></div>
-            <div class="col-xs-11"><p>Estimated Delivery: {{ site.data.order.delivery_date | date: "%d/%m/%Y" }}</p></div>
+            <div class="col-xs-11"><p>Estimated Delivery: {{ order.delivery_date | date: "%d/%m/%Y" }}</p></div>
           </div>
         </div>
       </div>
@@ -83,7 +84,7 @@ permalink: /solution/order/
 <div class="row">
   <div class="col-xs-12">
     <div class="panel panel-default">
-      <div class="panel-heading"><span class="badge">{{ site.data.order.items | size }}</span> Order Items</div>
+      <div class="panel-heading"><span class="badge">{{ order.items | size }}</span> Order Items</div>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -94,7 +95,7 @@ permalink: /solution/order/
           </tr>
         </thead>
         <tbody>
-          {% for item in site.data.order.items %}
+          {% for item in order.items %}
           <tr>
             <td>{{ item.id }}</td>
             <td><img src="{{ item.image }}" alt="{{ item.description }}" height="60"></td>
@@ -115,13 +116,13 @@ permalink: /solution/order/
         <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Payment</h3>
       </div>
       <div class="panel-body text-right">
-        {% for item in site.data.order.items %}
+        {% for item in order.items %}
         {% assign item_total = item_total | plus: item.price %}
         {% endfor %}
         <p>Items Total: £{{ item_total }} </p>
-        <p>Delivery Charge: £{{ site.data.order.delivery_charge }}</p>
-        <h4><strong>Order Total: £{{ item_total | plus: site.data.order.delivery_charge }}</strong></h4>
-        <p>Will be deducted from your {% if site.data.order.customer.payment_method == 'PayPal'%}<i class="fa fa-paypal fa-fw"></i>{{ site.data.order.customer.payment_method }}{% endif %} account.</p>
+        <p>Delivery Charge: £{{ order.delivery_charge }}</p>
+        <h4><strong>Order Total: £{{ item_total | plus: order.delivery_charge }}</strong></h4>
+        <p>Will be deducted from your {% if order.customer.payment_method == 'PayPal'%}<i class="fa fa-paypal fa-fw"></i>{{ order.customer.payment_method }}{% endif %} account.</p>
       </div>
     </div>
   </div>
